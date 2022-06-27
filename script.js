@@ -21,8 +21,8 @@ function ErroEntrar(elemento){
         document.querySelector('.TelaInicial input').value = ''
     }
 }
-function SucessoEntrar(elemento){
-    document.querySelector('.TelaInicial').classList.add('sumir')
+function SucessoEntrar(){
+    document.querySelector('.TelaInicialBackground').classList.add('sumir')
     document.querySelector('.TelaPrincipal').classList.remove('sumir')
     BuscarMensagens()
     setInterval(BuscarMensagens, 3000)
@@ -83,6 +83,28 @@ function RolagemAutomatica(){
 function ManterConexao(){
     const promessa = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', nome)
     promessa.then()
+}
+function EnviarMensagem(){
+    if(document.querySelector('.BottomBar input').value !== ''){
+        document.querySelector('.BottomBar input').classList.remove('erro')
+        let mensagem = {
+            from: lindonome,
+            to: 'Todos',
+            text: document.querySelector('.BottomBar input').value ,
+            type: "message"
+        }
+        document.querySelector('.BottomBar input').value = ''
+        const promessa = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', mensagem)
+        promessa.then(BuscarMensagens)
+        promessa.catch(ErroMensagem)
+    }else{
+        document.querySelector('.BottomBar input').classList.add('erro')
+    }
+}
+function ErroMensagem(elemento){
+    console.log(elemento)
+    alert('Você não está mais logado \nPara enviar uma mensagem, \nfaça login novamente')
+    window.location.reload()
 }
 
 
