@@ -3,6 +3,12 @@ let nome = {
     name:lindonome
 }
 function Iniciar(){
+    if(document.querySelector('.TelaInicial input').value !== ''){
+        document.querySelector('.entrarbtn').classList.add('sumir')
+        document.querySelector('.TelaInicial input').classList.add('sumir')
+        document.querySelector('.gif').classList.remove('sumir')
+        document.querySelector('h3').classList.remove('sumir')
+    }
     lindonome = document.querySelector('.TelaInicial input').value
     nome = {
         name:lindonome
@@ -102,6 +108,7 @@ function EnviarMensagem(){
     }
 }
 function TirarErro(){
+    document.querySelector('.TelaInicial input').classList.remove('erro')
     document.querySelector('.BottomBar input').classList.remove('erro')
 }
 function ErroMensagem(elemento){

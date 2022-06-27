@@ -161,3 +161,8 @@ body{
 .erro{
     outline: 1px solid red;
 }
+.gif{
+    height: 120px;
+    width: 120px;
+    margin-bottom: 20px;
+}
