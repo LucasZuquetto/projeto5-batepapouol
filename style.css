@@ -13,7 +13,7 @@ body{
     width: 130px;
     height: 92px;
     margin-top:10%;
-    margin-bottom: 10%;
+    margin-bottom: 20%;
 }
 .entrarbtn{
     display: flex;
@@ -46,6 +46,8 @@ body{
     box-sizing: border-box;   
     margin-top: 95px;
     margin-bottom: 85px;
+    display: flex;
+    flex-direction: column-reverse;
 }
 .DivMensagem{
     box-sizing: border-box;
@@ -108,8 +110,8 @@ body{
     justify-content: center;
 }
 .TelaInicialBackground{
-    height: 200vh;
-    width: 200vw;
+    height: 100vh;
+    width: 100vw;
     background-color: #ffffff;
 }
 .sumir{
