@@ -12,18 +12,22 @@
     <title>Bate Papo UOL</title>
 </head>
 <body>
-    <div class="TelaInicial">
-        <img class="uolgrande" src="logo 1.png" alt="Logo do Bate Papo UOL">
-        <input type="text">
-        <div class="entrarbtn"><h1>Entrar</h1></div>
+    <div class="TelaInicialBackground sumir">
+        <div class="TelaInicial">
+            <img class="uolgrande" src="logo 1.png" alt="Logo do Bate Papo UOL">
+            <input type="text">
+            <div class="entrarbtn"><h1>Entrar</h1></div>
+        </div>
     </div>
-    <div class="TelaPrincipal">
+    <div class="TelaPrincipal ">
         <div class="header">
             <img class="uolpequeno" src="logo 1.png" alt="logo do Bate Papo UOL">
             <ion-icon class="peopleicon" name="people"></ion-icon>
         </div>
         <div class="chat">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero fugit error qui nobis maiores provident illum vel voluptatum fuga aspernatur? Maiores ipsum ex nobis aut aliquid nesciunt nihil possimus magnam?
+            <div>
+                <span class="horario"></span><span class="usuario"></span><span class="mensagem"></span>
+            </div>
         </div>
         <div class="BottomBar">
             <input type="text">
@@ -32,6 +36,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero fugit error qui n
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
