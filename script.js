@@ -22,6 +22,8 @@ function BuscarMensagens(){
     promise.then(CarregarMensagens)
 }
 function CarregarMensagens(elementos){
+    console.log('carregando msgs')
+    document.querySelector('.chat').innerHTML = ''
     for( let i = elementos.data.length - 1 ; i > 0 ; i = i-1){
         if(elementos.data[i].type === 'status'){
             const MensagensTemplate =
@@ -31,7 +33,6 @@ function CarregarMensagens(elementos){
                 <span class="mensagem">${elementos.data[i].text}</span>
             </div>`
             document.querySelector('.chat').innerHTML += MensagensTemplate
-            console.log(i)
         }
         if(elementos.data[i].type === 'message'){
             const MensagensTemplate =
@@ -43,7 +44,6 @@ function CarregarMensagens(elementos){
                 <span class="mensagem">${elementos.data[i].text}</span>
             </div>`
             document.querySelector('.chat').innerHTML += MensagensTemplate
-            console.log(i)
         }
         if(elementos.data[i].type === 'private_message'){
             if(lindonome === elementos.data[i].to || lindonome === elementos.data[i].from){
@@ -56,15 +56,22 @@ function CarregarMensagens(elementos){
                     <span class="mensagem">${elementos.data[i].text}</span>
                 </div>`
                 document.querySelector('.chat').innerHTML += MensagensTemplate
-                console.log(i)
-            }else{
-                console.log('n apareceu')
             }
         }
     }
+    RolagemAutomatica()
+}
+function RolagemAutomatica(){
     const ultimoelemento = document.querySelector('.DivMensagem')
+    if(ultimoelemento.parentNode.classList.contains('Scroll')){
+        return
+    }
+    ultimoelemento.parentNode.classList.add('Scroll')
     ultimoelemento.scrollIntoView()
 }
 //EntrarSala()
 BuscarMensagens()
+setInterval(BuscarMensagens, 3000)
+
+
 
