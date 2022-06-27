@@ -1,9 +1,9 @@
 //let lindonome = prompt('digite seu lindo nome')
-let lindonome = 'lucas'
+let lindonome = 'lalalalalala'
+let nome = {
+    name:lindonome
+}
 function EntrarSala(){
-    let nome = {
-        name:lindonome
-    }
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', nome)
     promise.then(SucessoEntrar)
     promise.catch(ErroEntrar)
@@ -69,9 +69,14 @@ function RolagemAutomatica(){
     ultimoelemento.parentNode.classList.add('Scroll')
     ultimoelemento.scrollIntoView()
 }
-//EntrarSala()
+function ManterConexao(){
+    const promessa = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', nome)
+    promessa.then()
+}
+EntrarSala()
 BuscarMensagens()
 setInterval(BuscarMensagens, 3000)
+setInterval(ManterConexao, 5000)
 
 
 
