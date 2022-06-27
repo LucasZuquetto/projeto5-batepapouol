@@ -21,7 +21,10 @@ function EntrarSala(){
     promise.catch(ErroEntrar)
 }
 function ErroEntrar(elemento){
-    if(elemento.response.status === 400){
+    if(document.querySelector('.TelaInicial input').value !== ''){
+        alert('erro 400, Nome inválido \n Digite novamente')
+        window.location.reload()
+    }else{
         alert('erro 400, Nome inválido \n Digite novamente')
         document.querySelector('.TelaInicial input').classList.add('erro')
         document.querySelector('.TelaInicial input').value = ''
@@ -39,7 +42,6 @@ function BuscarMensagens(){
     promise.then(CarregarMensagens)
 }
 function CarregarMensagens(elementos){
-    console.log('carregando msgs')
     document.querySelector('.chat').innerHTML = ''
     for( let i = elementos.data.length - 1 ; i > 0 ; i = i-1){
         if(elementos.data[i].type === 'status'){
