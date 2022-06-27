@@ -101,11 +101,18 @@ function EnviarMensagem(){
         document.querySelector('.BottomBar input').classList.add('erro')
     }
 }
+function TirarErro(){
+    document.querySelector('.BottomBar input').classList.remove('erro')
+}
 function ErroMensagem(elemento){
     console.log(elemento)
     alert('Você não está mais logado \nPara enviar uma mensagem, \nfaça login novamente')
     window.location.reload()
 }
 
-
+document.querySelector(".TelaPrincipal input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        EnviarMensagem();
+    }
+})
 
